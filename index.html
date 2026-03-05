@@ -3,53 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To-Do List</title>
+    <title>Ern Qi | Software Engineer & Taekwondo Athlete</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <h1>To-Do List</h1>
-        <div class="input-container">
-            <input type="text" id="todo-input" placeholder="Add a new task...">
-            <button id="add-btn">Add</button>
-        </div>
-        <ul id="todo-list"></ul>
+        <nav>
+            <div class="logo">Ern Qi</div>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
+
+        <header id="home" class="hero">
+            <h1>Ern Qi</h1>
+            <p class="tagline">Software Engineer & Taekwondo Athlete</p>
+        </header>
+
+        <section id="about" class="section">
+            <h2>About Me</h2>
+            <p>I am a passionate Software Engineer with a strong background in Taekwondo. I bring the discipline, focus, and strategic thinking from the dojo into my coding projects, ensuring clean code and efficient solutions.</p>
+        </section>
+
+        <section id="skills" class="section">
+            <h2>Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">JavaScript</div>
+                <div class="skill-card">Python</div>
+                <div class="skill-card">HTML/CSS</div>
+                <div class="skill-card">Taekwondo</div>
+                <div class="skill-card">Problem Solving</div>
+                <div class="skill-card">Teamwork</div>
+            </div>
+        </section>
+
+        <footer id="contact" class="footer">
+            <p>Let's connect and build something great together.</p>
+            <a href="mailto:ern@example.com" class="btn">Contact Me</a>
+        </footer>
     </div>
-    <script>
-        const input = document.getElementById('todo-input');
-        const addBtn = document.getElementById('add-btn');
-        const list = document.getElementById('todo-list');
-
-        function addTask() {
-            const text = input.value.trim();
-            if (text === '') return;
-
-            const li = document.createElement('li');
-            li.innerHTML = `
-                <span class="task-text">${text}</span>
-                <button class="delete-btn">Delete</button>
-            `;
-
-            // Toggle complete on text click
-            const taskText = li.querySelector('.task-text');
-            taskText.addEventListener('click', () => {
-                li.classList.toggle('completed');
-            });
-
-            // Delete on button click
-            const deleteBtn = li.querySelector('.delete-btn');
-            deleteBtn.addEventListener('click', () => {
-                li.remove();
-            });
-
-            list.appendChild(li);
-            input.value = '';
-        }
-
-        addBtn.addEventListener('click', addTask);
-        input.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') addTask();
-        });
-    </script>
 </body>
 </html>
