@@ -4,7 +4,7 @@ const portfolioHTML = `
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ern Qi - Portfolio</title>
+    <title>Leena - Portfolio</title>
     <style>
         :root {
             --primary: #6a0dad;
@@ -74,13 +74,13 @@ const portfolioHTML = `
             transform: translateY(-5px);
             background: var(--secondary);
         }
-        .taekwondo-info {
+        .piano-info {
             display: flex;
             align-items: center;
             gap: 20px;
             flex-wrap: wrap;
         }
-        .taekwondo-badge {
+        .piano-badge {
             font-size: 3rem;
             background: var(--secondary);
             width: 100px;
@@ -116,14 +116,14 @@ const portfolioHTML = `
 </head>
 <body>
     <header>
-        <h1>Ern Qi</h1>
-        <div class="subtitle">Software Engineer & Taekwondo Practitioner</div>
+        <h1>Leena</h1>
+        <div class="subtitle">Software Engineer & Pianist</div>
     </header>
 
     <div class="container">
         <section id="about">
             <h2>About Me</h2>
-            <p>Hello! I am Ern Qi, a passionate software engineer with a strong background in building scalable web applications. When I'm not coding, I am dedicated to the discipline of Taekwondo, where I have earned my Black Belt.</p>
+            <p>Hello! I am Leena, a passionate software engineer with a strong background in building scalable web applications. When I'm not coding, I am dedicated to the art of piano, where I have been playing for over a decade.</p>
         </section>
 
         <section id="skills">
@@ -135,16 +135,17 @@ const portfolioHTML = `
                 <div class="skill-card">Node.js</div>
                 <div class="skill-card">SQL</div>
                 <div class="skill-card">Git</div>
+                <div class="skill-card">Piano</div>
             </div>
         </section>
 
-        <section id="taekwondo">
-            <h2>Taekwondo Background</h2>
-            <div class="taekwondo-info">
-                <div class="taekwondo-badge">Black Belt</div>
+        <section id="piano">
+            <h2>Piano Background</h2>
+            <div class="piano-info">
+                <div class="piano-badge">Piano</div>
                 <div>
-                    <p>I have been practicing Taekwondo for over 10 years. The discipline, focus, and respect I learned on the mat directly translate to my work as a developer.</p>
-                    <p>Philosophy: "Perseverance is the key to success."
+                    <p>I have been playing piano for over 10 years. The discipline, focus, and expression I learn on the keys directly translate to my work as a developer.</p>
+                    <p>Philosophy: "Music is the universal language."
                 </div>
             </div>
         </section>
