@@ -4,6 +4,8 @@
     --card-bg: #2d1b4e;
     --text-light: #f3e5f5;
     --accent: #d8b4fe;
+    --x-color: #4facfe;
+    --o-color: #ff5858;
 }
 
 body {
@@ -14,110 +16,87 @@ body {
     padding: 0;
     display: flex;
     justify-content: center;
+    align-items: center;
     min-height: 100vh;
 }
 
-.container {
-    width: 100%;
-    max-width: 800px;
+.game-container {
+    text-align: center;
     background-color: var(--card-bg);
     padding: 40px;
     border-radius: 12px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    margin: 20px;
+    max-width: 400px;
+    width: 90%;
 }
 
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 2px solid var(--primary);
-    padding-bottom: 20px;
-    margin-bottom: 40px;
+h1 {
+    margin-top: 0;
+    color: var(--accent);
+    font-size: 2.5rem;
 }
 
-.logo {
+.status {
     font-size: 1.5rem;
-    font-weight: bold;
-    color: var(--accent);
-}
-
-.nav-links a {
-    color: var(--text-light);
-    text-decoration: none;
-    margin-left: 20px;
-    font-weight: bold;
-    transition: color 0.3s;
-}
-
-.nav-links a:hover {
-    color: var(--accent);
-}
-
-.hero h1 {
-    font-size: 3rem;
-    margin: 0;
-    background: linear-gradient(to right, #d8b4fe, #6a0dad);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.tagline {
-    font-size: 1.2rem;
-    color: var(--accent);
-    margin-top: 10px;
-}
-
-.section h2 {
-    border-left: 5px solid var(--primary);
-    padding-left: 15px;
     margin-bottom: 20px;
-    font-size: 1.8rem;
+    font-weight: bold;
 }
 
-.section p {
-    line-height: 1.6;
-    font-size: 1.1rem;
-}
-
-.skills-grid {
+.board {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 15px;
-    margin-top: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 30px;
 }
 
-.skill-card {
+.cell {
     background-color: var(--primary);
-    padding: 15px;
-    border-radius: 8px;
-    text-align: center;
-    transition: transform 0.2s;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    font-weight: bold;\    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
 }
 
-.skill-card:hover {
-    transform: translateY(-5px);
+.cell:hover {
     background-color: #7b1fa2;
 }
 
-.footer {
-    text-align: center;
-    margin-top: 50px;
-    padding-top: 20px;
-    border-top: 1px solid var(--primary);
+.cell:active {
+    transform: scale(0.95);
 }
 
-.btn {
-    display: inline-block;
-    background-color: var(--primary);
-    color: white;
-    padding: 12px 25px;
-    text-decoration: none;
-    border-radius: 25px;
-    margin-top: 15px;
-    transition: background-color 0.3s;
+.cell.x {
+    color: var(--x-color);
 }
 
-.btn:hover {
-    background-color: #7b1fa2;
+.cell.o {
+    color: var(--o-color);
+}
+
+.reset-btn {
+    background-color: var(--accent);
+    color: var(--dark-bg);
+    border: none;
+    padding: 12px 30px;
+    font-size: 1rem;\    font-weight: bold;\    border-radius: 25px;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+.reset-btn:hover {
+    opacity: 0.8;
+}
+
+@media (max-width: 400px) {
+    .cell {
+        height: 80px;
+        font-size: 2.5rem;
+    }
+    h1 {
+        font-size: 2rem;
+    }
 }
