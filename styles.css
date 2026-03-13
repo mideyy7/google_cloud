@@ -1,11 +1,11 @@
 :root {
-    --primary: #6a0dad;
-    --dark-bg: #1a0b2e;
-    --card-bg: #2d1b4e;
-    --text-light: #f3e5f5;
-    --accent: #d8b4fe;
-    --x-color: #4facfe;
-    --o-color: #ff5858;
+    --primary: #ff9800;
+    --dark-bg: #2d1b00;
+    --card-bg: #3e2723;
+    --text-light: #ffffff;
+    --accent: #ff5722;
+    --x-color: #ffffff;
+    --o-color: #ff9800;
 }
 
 body {
@@ -56,13 +56,14 @@ h1 {
     justify-content: center;
     align-items: center;
     font-size: 3rem;
-    font-weight: bold;\    border-radius: 8px;
+    font-weight: bold;
+    border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.2s, transform 0.1s;
 }
 
 .cell:hover {
-    background-color: #7b1fa2;
+    background-color: #e65100;
 }
 
 .cell:active {
@@ -82,7 +83,9 @@ h1 {
     color: var(--dark-bg);
     border: none;
     padding: 12px 30px;
-    font-size: 1rem;\    font-weight: bold;\    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 25px;
     cursor: pointer;
     transition: opacity 0.3s;
 }

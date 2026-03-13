@@ -8,8 +8,8 @@ const gameHTML = `
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #2c3e50;
-            color: #ecf0f1;
+            background-color: #fff8f0;
+            color: #e65100;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -19,25 +19,25 @@ const gameHTML = `
         }
         h1 {
             margin-bottom: 20px;
-            color: #e74c3c;
+            color: #e65100;
         }
         .status {
             font-size: 1.5rem;
             margin-bottom: 20px;
-            color: #f1c40f;
+            color: #e65100;
         }
         .board {
             display: grid;
             grid-template-columns: repeat(3, 100px);
             grid-template-rows: repeat(3, 100px);
             gap: 10px;
-            background-color: #34495e;
+            background-color: #ffffff;
             padding: 10px;
             border-radius: 10px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
         .cell {
-            background-color: #ecf0f1;
+            background-color: #ffffff;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -49,27 +49,27 @@ const gameHTML = `
             transition: background-color 0.2s;
         }
         .cell:hover {
-            background-color: #bdc3c7;
+            background-color: #fff3e0;
         }
         .cell.x {
-            color: #e74c3c;
+            color: #ff5722;
         }
         .cell.o {
-            color: #3498db;
+            color: #ffffff;
         }
         button {
             margin-top: 30px;
             padding: 12px 24px;
             font-size: 1.1rem;
             cursor: pointer;
-            background-color: #27ae60;
+            background-color: #ff9800;
             color: white;
             border: none;
             border-radius: 5px;
             transition: background-color 0.2s;
         }
         button:hover {
-            background-color: #2ecc71;
+            background-color: #f57c00;
         }
     </style>
 </head>
