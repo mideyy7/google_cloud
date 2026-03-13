@@ -59,7 +59,7 @@ h1 {
     font-weight: bold;
     border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.2s, transform 0.1s;
+    transition: all 0.2s ease;
 }
 
 .cell:hover {
@@ -68,6 +68,16 @@ h1 {
 
 .cell:active {
     transform: scale(0.95);
+}
+
+.cell.played {
+    animation: pop 0.2s ease;
+}
+
+@keyframes pop {
+    0% { transform: scale(0.9); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
 }
 
 .cell.x {
