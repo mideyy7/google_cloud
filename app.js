@@ -1,167 +1,180 @@
-const portfolioHTML = `
+const gameHTML = `
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Leena - Portfolio</title>
+    <title>Tic-Tac-Toe</title>
     <style>
-        :root {
-            --primary: #6a0dad;
-            --secondary: #9370db;
-            --accent: #e0b0ff;
-            --bg: #2e003e;
-            --card-bg: rgba(255, 255, 255, 0.1);
-            --text: #f3e5f5;
-        }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg);
-            color: var(--text);
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
             margin: 0;
-            padding: 0;
-            line-height: 1.6;
-        }
-        header {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            padding: 40px 20px;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
         }
         h1 {
-            margin: 0;
-            font-size: 2.5rem;
-            color: var(--accent);
+            margin-bottom: 20px;
+            color: #e74c3c;
         }
-        .subtitle {
-            font-size: 1.2rem;
-            margin-top: 10px;
-            opacity: 0.9;
+        .status {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #f1c40f;
         }
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        section {
-            background: var(--card-bg);
-            margin-bottom: 30px;
-            padding: 30px;
-            border-radius: 12px;
-            border-left: 5px solid var(--secondary);
-            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-        }
-        h2 {
-            color: var(--secondary);
-            border-bottom: 2px solid var(--primary);
-            padding-bottom: 10px;
-            display: inline-block;
-        }
-        .skills-grid {
+        .board {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
+            grid-template-columns: repeat(3, 100px);
+            grid-template-rows: repeat(3, 100px);
+            gap: 10px;
+            background-color: #34495e;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
         }
-        .skill-card {
-            background: var(--primary);
-            padding: 15px;
-            border-radius: 8px;
-            text-align: center;
-            transition: transform 0.2s;
-        }
-        .skill-card:hover {
-            transform: translateY(-5px);
-            background: var(--secondary);
-        }
-        .piano-info {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-        .piano-badge {
-            font-size: 3rem;
-            background: var(--secondary);
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
+        .cell {
+            background-color: #ecf0f1;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 3rem;
             font-weight: bold;
-            color: white;
-        }
-        .contact-form input, .contact-form textarea {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            border-radius: 5px;
-            border: none;
-            background: rgba(255,255,255,0.9);
-        }
-        .contact-form button {
-            padding: 10px 20px;
-            background: var(--secondary);
-            color: white;
-            border: none;
-            border-radius: 5px;
             cursor: pointer;
-            font-size: 1rem;
+            user-select: none;
+            border-radius: 5px;
+            transition: background-color 0.2s;
         }
-        .contact-form button:hover {
-            background: var(--primary);
+        .cell:hover {
+            background-color: #bdc3c7;
+        }
+        .cell.x {
+            color: #e74c3c;
+        }
+        .cell.o {
+            color: #3498db;
+        }
+        button {
+            margin-top: 30px;
+            padding: 12px 24px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.2s;
+        }
+        button:hover {
+            background-color: #2ecc71;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Leena</h1>
-        <div class="subtitle">Software Engineer & Pianist</div>
-    </header>
-
-    <div class="container">
-        <section id="about">
-            <h2>About Me</h2>
-            <p>Hello! I am Leena, a passionate software engineer with a strong background in building scalable web applications. When I'm not coding, I am dedicated to the art of piano, where I have been playing for over a decade.</p>
-        </section>
-
-        <section id="skills">
-            <h2>Technical Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-card">JavaScript</div>
-                <div class="skill-card">Python</div>
-                <div class="skill-card">React</div>
-                <div class="skill-card">Node.js</div>
-                <div class="skill-card">SQL</div>
-                <div class="skill-card">Git</div>
-                <div class="skill-card">Piano</div>
-            </div>
-        </section>
-
-        <section id="piano">
-            <h2>Piano Background</h2>
-            <div class="piano-info">
-                <div class="piano-badge">Piano</div>
-                <div>
-                    <p>I have been playing piano for over 10 years. The discipline, focus, and expression I learn on the keys directly translate to my work as a developer.</p>
-                    <p>Philosophy: "Music is the universal language."
-                </div>
-            </div>
-        </section>
-
-        <section id="contact">
-            <h2>Contact</h2>
-            <form class="contact-form" onsubmit="event.preventDefault(); alert('Thank you for your message!');">
-                <input type="text" placeholder="Your Name" required>
-                <input type="email" placeholder="Your Email" required>
-                <textarea rows="5" placeholder="Your Message" required></textarea>
-                <button type="submit">Send Message</button>
-            </form>
-        </section>
+    <h1>Tic-Tac-Toe</h1>
+    <div class="status" id="status">Player X's turn</div>
+    <div class="board" id="board">
+        <!-- Cells will be generated by JavaScript -->
     </div>
+    <button id="reset">Reset Game</button>
+
+    <script>
+        const boardElement = document.getElementById('board');
+        const statusElement = document.getElementById('status');
+        const resetButton = document.getElementById('reset');
+        
+        let board = ['', '', '', '', '', '', '', '', ''];
+        let currentPlayer = 'X';
+        let gameActive = true;
+
+        const winningConditions = [
+            [0, 1, 2], [3, 4, 5], [6, 7, 8],
+            [0, 3, 6], [1, 4, 7], [2, 5, 8],
+            [0, 4, 8], [2, 4, 6]
+        ];
+
+        function createBoard() {
+            boardElement.innerHTML = '';
+            board.forEach((cell, index) => {
+                const cellElement = document.createElement('div');
+                cellElement.classList.add('cell');
+                cellElement.setAttribute('data-index', index);
+                cellElement.addEventListener('click', handleCellClick);
+                boardElement.appendChild(cellElement);
+            });
+        }
+
+        function handleCellClick(e) {
+            const clickedCell = e.target;
+            const clickedCellIndex = parseInt(clickedCell.getAttribute('data-index'));
+
+            if (board[clickedCellIndex] !== '' || !gameActive) {
+                return;
+            }
+
+            handleCellPlayed(clickedCell, clickedCellIndex);
+            handleResultValidation();
+        }
+
+        function handleCellPlayed(clickedCell, clickedCellIndex) {
+            board[clickedCellIndex] = currentPlayer;
+            clickedCell.innerText = currentPlayer;
+            clickedCell.classList.add(currentPlayer.toLowerCase());
+        }
+
+        function handleResultValidation() {
+            let roundWon = false;
+            for (let i = 0; i <= 7; i++) {
+                const winCondition = winningConditions[i];
+                let a = board[winCondition[0]];
+                let b = board[winCondition[1]];
+                let c = board[winCondition[2]];
+                if (a === '' || b === '' || c === '') {
+                    continue;
+                }
+                if (a === b && b === c) {
+                    roundWon = true;
+                    break;
+                }
+            }
+
+            if (roundWon) {
+                statusElement.innerText = `Player ${currentPlayer} wins!`;
+                gameActive = false;
+                return;
+            }
+
+            let roundDraw = !board.includes('');
+            if (roundDraw) {
+                statusElement.innerText = 'Game Draw!';
+                gameActive = false;
+                return;
+            }
+
+            handlePlayerChange();
+        }
+
+        function handlePlayerChange() {
+            currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+            statusElement.innerText = `Player ${currentPlayer}'s turn`;
+        }
+
+        function handleRestartGame() {
+            gameActive = true;
+            currentPlayer = 'X';
+            board = ['', '', '', '', '', '', '', '', ''];
+            statusElement.innerText = `Player ${currentPlayer}'s turn`;
+            createBoard();
+        }
+
+        resetButton.addEventListener('click', handleRestartGame);
+        createBoard();
+    </script>
 </body>
 </html>
 `;
 
-document.body.innerHTML = portfolioHTML;
+document.body.innerHTML = gameHTML;
