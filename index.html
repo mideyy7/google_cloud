@@ -60,6 +60,7 @@
             gameState[clickedCellIndex] = currentPlayer;
             clickedCell.textContent = currentPlayer;
             clickedCell.classList.add(currentPlayer.toLowerCase());
+            clickedCell.classList.add('played');
         }
 
         function handleResultValidation() {
@@ -105,7 +106,8 @@
 
         function highlightWinningCells(indices) {
             indices.forEach(index => {
-                cells[index].style.backgroundColor = 'rgba(255, 255, 255, 0.2)';
+                cells[index].style.backgroundColor = 'rgba(255, 255, 255, 0.3)';
+                cells[index].style.boxShadow = '0 0 10px rgba(255, 255, 255, 0.7)';
             });
         }
 
@@ -116,8 +118,9 @@
             statusDisplay.textContent = `Player X's turn`;
             cells.forEach(cell => {
                 cell.textContent = '';
-                cell.classList.remove('x', 'o');
+                cell.classList.remove('x', 'o', 'played');
                 cell.style.backgroundColor = '';
+                cell.style.boxShadow = '';
             });
         }
 
